@@ -50,10 +50,9 @@ end if
 End Sub
 
 '**************************************
-'Example : 3557/3828 t -4 *10 ro 'Matryoshka
-'Parsed as: fraction 3557/3828,
-'subtract 2/3, subtract 1/4, times 10/10,
-'expand ro fraction and skip comment.
+'Example: 5439/1276 -4 *10 ro 'Matryoshka
+'Parsed as: fraction 5439/1276, subtract 1/4,
+'times 10/10, expand ro fraction and skip comment.
 
 Function frc.parse (byref g as string) as integer
 dim as const string tok = "'0123456789/-*vrt"
