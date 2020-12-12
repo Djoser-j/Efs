@@ -1,0 +1,8 @@
+# exclude .gitattributes etc from archive
+.git*     export-ignore
+# do not touch
+*.num     binary
+# overrides
+*.bas     linguist-language=FreeBasic
+*.bat     linguist-detectable=false
+*.log     linguist-detectable=false
