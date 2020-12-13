@@ -13,6 +13,7 @@ const prn = $".\modules\practical.num"
 const slx = 31             ' short list
 const llx = 127            ' longer list
 const tmx = 21             ' switch subsetSum method
+const amx = 65536          ' argument maximum
 'set to be verbose
 dim shared as integer verb = 0
 #define verbose(a) verb = (a) <> 0
@@ -56,7 +57,6 @@ End Sub
 
 Function frc.parse (byref g as string) as integer
 dim as const string tok = "'0123456789/-*vrt"
-dim as const integer amx = (1 shl 16) - 1
 dim as integer i, j, t
 dim q as ulongint
 parse = 0
@@ -93,31 +93,30 @@ parse = 0
       end select
    next i
 
-   if a(1) = 0 then return 1
-   if a(0) > amx or a(1) > amx then
-      print "overflow"
-      return -1
-   end if
-
    verbose(fl and 4)
    fl shr= 3: fl shl= 2
    if fl and 8 then fl -= 7
    '1 for "t", 4 for "r",
    'unit a(2), multiplier a(3)
 
+   if a(1) = 0 then return 1
    q = a(0) \ a(1)
-   print "n/d: ";
-   if q then
-      'proper fraction
-      a(0) -= q * a(1)
-      print q;" + ";
+   'make proper fraction
+   if q then a(0) -= q * a(1)
+
+   if a(0) < amx and a(1) < amx then
+      print "n/d: ";
+      if q then print q;" + ";
+      print a(0);"/";a(1)
+
+   else
+      print "overflow"
+      return -1
    end if
-   print a(0);"/";a(1)
 End Function
 
 'input conversion
 Sub frc.getfr (byref x as longint, byref y as longint)
-dim as const integer amx = 1 shl 30
 dim as longint u, v
 
   'switches 1, 4 and 8
