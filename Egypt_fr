@@ -1,4 +1,4 @@
-'Warning: a comma in an input line
+'Warning: an input line with a comma
 'will terminate program execution.
 '
 'Fibonacci
@@ -107,25 +107,35 @@
 'linear equations (RMP 31-38)
 1386/97 *168
 24/19 *3
-'see 2/97 above
+'1554/97 see 2/97 above
 40/7
 3/10
 15/53
 9/32
 7/22
-'silo volume (RMP 43 - fraction only)
-1215/2187 r
+'grain silo volume (RMP 42)
+64000/81 -27 ' cubic cubit
+96000/81     ' khar
+1600/27      ' 100 quadruple hekat
+'idem (RMP 43)
+4096/9         ' khar
+4976640/2187 r ' quadruple hekat + ro fraction
 'Some Horus eye quotients
 'with exact ro-fractions:
-'division of 100 (quadruple) hekats (RMP 47)
+'division of 100 quadruple hekat (RMP 47)
 100/30 r t
 100/70 r
 100/90 r
 '10 hekat of fat for one year (RMP 66)
 10/365 t r
-'food pefsu (RMP 69)
+'meal per loaf of bread and pefsu (RMP 69)
 7/160 r
 160/7 t
+'idem (RMP 70)
+63/800 r
+800/63 t
+'houses cats mice spelt and hekat (RMP 79)
+2801/16807 -7
 'The Akhmim wooden tablets: hekat / n
 1/7 r
 1/11 r
