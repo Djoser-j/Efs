@@ -73,7 +73,8 @@ parse = 0
       case 0
          continue for
       case 1
-         'comment
+         'echo comment
+         print mid(g, i + 1)
          if fl then exit for
          return -1
 
@@ -155,17 +156,23 @@ End Sub
 
 'print units vector
 Sub frc.prunit (byref g as string)
-dim i as integer
+dim as integer i, sw = fl
+
+   if sw and 1 then
+      'fix 2/3 = 1/2 + 1/6
+      i = (u(0) = 2 and u(1) = 6)
+      if i and (t = 1) then t =-1: sw or= 16
+   end if
 
    print lcase(g); " [";
-   if fl and 16 then print " 3";chr(34);
+   if sw and 16 then print " 3";chr(34);
    for i = 0 to t
       print u(i);
       if i < t then print " ";
    next i
    print iif(g="F",",..."," ]");
 
-   if fl and 16 then i += 1
+   if sw and 16 then i += 1
    print iif(verb," "+str(i),"")
 End Sub
 
@@ -357,8 +364,7 @@ if x > 1 then
    b = 0: exit sub
 end if
 
-y = rs(t) * c ' (mod a)
-y -= (y \ a) * a
+y = res(rs(t) * c, a)
 x = (c - b * y) \ a
 
 'adjust signs
@@ -633,17 +639,18 @@ End Sub
 Function div.singleset (byval i as integer,_
  byval sum as long) as integer
 dim as integer sw
+   if sum = 0 then return -1
+   if (sum < 0) or (i > tm) then return 0
 
-if sum = 0 then return -1
-if (sum < 0) or (i > tm) then return 0
-sw = singleset(i + 1, sum)
-if sw then
-   id(i) = 0: return -1
-end if
-sw = singleset(i + 1, sum - dv(i))
-if sw then
-   id(i) = -1: return -1
-end if
+   sw = singleset(i + 1, sum)
+   if sw then
+      id(i) = 0: return -1
+   end if
+
+   sw = singleset(i + 1, sum - dv(i))
+   if sw then
+      id(i) = -1: return -1
+   end if
 return 0
 End Function
 
