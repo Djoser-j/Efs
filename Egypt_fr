@@ -120,12 +120,18 @@
 'idem (RMP 43)
 4096/9         ' khar
 4976640/2187 r ' quadruple hekat + ro fraction
-'Some Horus eye quotients
-'with exact ro-fractions:
+'more Horus-eye quotients
+'with exact ro fractions:
 'division of 100 quadruple hekat (RMP 47)
 100/30 r t
 100/70 r
 100/90 r
+'seket of a pyramid (RMP 56)
+18/25 t
+126/25
+'single and double shares of bread (RMP 65)
+100/13 t
+200/13
 '10 hekat of fat for one year (RMP 66)
 10/365 t r
 'meal per loaf of bread and pefsu (RMP 69)
@@ -136,7 +142,11 @@
 800/63 t
 'houses cats mice spelt and hekat (RMP 79)
 2801/16807 -7
+'hekat to hinu conversion (RMP 81)
+35/4 t
+10/64 *3
 'The Akhmim wooden tablets: hekat / n
+1/3 r t
 1/7 r
 1/11 r
 1/13 r
