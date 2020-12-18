@@ -346,25 +346,25 @@ End Sub
 'Bézout's identity ax - by = c
 Sub Bezout (byref a as longint, byref b as longint,_
  byval c as longint)
-dim as longint q, r, x = a, y = b
-dim as longint rs(1) = {1,0}
-dim as integer t = 1
+dim as longint x = a, y = b
+dim as longint u = 0, v = 1
+dim as longint q, r
 
 'Euclidean division & inversion
-do
+while y
    q = x \ y
    r = x - q * y
-   rs(t) -= q * rs(1 - t)
-   t = 1 - t
    x = y: y = r
-loop until r = 0
+   r = u - q * v
+   u = v: v = r
+wend
 
 if x > 1 then
    print "impossible inverse mod Q, gcd ="; x
    b = 0: exit sub
 end if
 
-y = res(rs(t) * c, a)
+y = res(u * c, a)
 x = (c - b * y) \ a
 
 'adjust signs
